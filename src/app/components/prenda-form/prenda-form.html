@@ -1,0 +1,65 @@
+<div style="max-width: 600px; margin: 30px auto; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); font-family: sans-serif;">
+  <h2 style="text-align: center; color: #1e392a; margin-top: 0;">Publicar Nueva Prenda</h2>
+
+  <form (ngSubmit)="onSubmit()">
+
+    <div style="margin-bottom: 12px;">
+      <label style="display: block; font-weight: 600; font-size: 13px; margin-bottom: 4px;">Título:</label>
+      <input type="text" [(ngModel)]="nuevaPrenda.titulo" name="titulo" placeholder="Ej. Chumpa de lona" required style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box;">
+    </div>
+
+    <div style="margin-bottom: 12px;">
+      <label style="display: block; font-weight: 600; font-size: 13px; margin-bottom: 4px;">Descripción:</label>
+      <textarea [(ngModel)]="nuevaPrenda.descripcion" name="descripcion" rows="3" placeholder="Describe detalladamente la prenda..." style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box;"></textarea>
+    </div>
+
+    <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+      <div style="flex: 1;">
+        <label style="display: block; font-weight: 600; font-size: 13px; margin-bottom: 4px;">Talla:</label>
+        <input type="text" [(ngModel)]="nuevaPrenda.talla" name="talla" placeholder="Ej. M, L, XL, 41" required style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box;">
+      </div>
+
+      <div style="flex: 1;">
+        <label style="display: block; font-weight: 600; font-size: 13px; margin-bottom: 4px;">Estado:</label>
+        <select [(ngModel)]="nuevaPrenda.estado_prenda" name="estado_prenda" style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box; background: white;">
+          <option value="BUEN_ESTADO">BUEN_ESTADO</option>
+          <option value="NUEVO">NUEVO</option>
+          <option value="USADO">USADO</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+      <div style="flex: 1;">
+        <label style="display: block; font-weight: 600; font-size: 13px; margin-bottom: 4px;">Cantidad:</label>
+        <input type="number" [(ngModel)]="nuevaPrenda.cantidad" name="cantidad" min="1" style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box;">
+      </div>
+
+      <div style="flex: 1;">
+        <label style="display: block; font-weight: 600; font-size: 13px; margin-bottom: 4px;">Categoría:</label>
+        <select [(ngModel)]="nuevaPrenda.id_categoria" name="id_categoria" required style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box; background: white;">
+          <option value="" disabled>Selecciona una categoría</option>
+          <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nombre }}</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- CAMPO PARA CARGAR IMAGEN DESDE TU EQUIPO -->
+    <div style="margin-bottom: 15px; background: #f8fafc; padding: 12px; border: 1px dashed #cbd5e1; border-radius: 8px;">
+      <label style="display: block; font-weight: 600; font-size: 13px; margin-bottom: 6px; color: #334155;">📷 Cargar Imagen de la prenda:</label>
+      <input type="file" (change)="onFileSelected($event)" accept="image/jpeg,image/png,image/webp,image/gif" style="font-size: 13px; width: 100%;">
+
+      <div *ngIf="imagenPreview" style="margin-top: 10px; text-align: center;">
+        <img [src]="imagenPreview" alt="Vista previa de la prenda" style="max-height: 140px; max-width: 100%; border-radius: 6px; border: 1px solid #ddd;">
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+      <a routerLink="/prendas" style="color: #666; text-decoration: none; font-size: 14px;">← Volver al catálogo</a>
+      <button type="submit" [disabled]="publicando" style="background-color: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer;">
+        {{ publicando ? 'Publicando...' : 'Publicar Prenda' }}
+      </button>
+    </div>
+
+  </form>
+</div>

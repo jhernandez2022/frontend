@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title">
+  <title id="title">Imagen de prenda no disponible</title>
+  <rect width="640" height="480" fill="#f3f4f6"/>
+  <path d="m220 160 55-30h90l55 30 55 70-50 35-30-35v130H220V230l-30 35-50-35 55-70Z" fill="#d8f3dc" stroke="#2d6a4f" stroke-linejoin="round" stroke-width="12"/>
+  <path d="M275 130c0 25 20 45 45 45s45-20 45-45" fill="none" stroke="#2d6a4f" stroke-width="12"/>
+</svg>

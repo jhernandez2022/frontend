@@ -1,0 +1,55 @@
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <div class="brand-logo">
+      <span class="logo-icon"></span>
+      <span class="brand-name">ClothLink</span>
+    </div>
+
+    <h2 class="auth-title">Inicio de Sesión</h2>
+
+    <!-- Mensaje de error si la validación o credenciales fallan -->
+    <div *ngIf="errorMessage" class="error-alert">
+      {{ errorMessage }}
+    </div>
+
+    <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)" class="auth-form" novalidate>
+      <div class="input-group">
+        <span class="input-icon">✉️</span>
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Correo electrónico"
+          #emailInput="ngModel"
+          required
+          email>
+      </div>
+      <small *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched || formSubmitted)" class="field-error">
+        Ingresa un correo electrónico válido.
+      </small>
+
+      <div class="input-group">
+        <span class="input-icon">🔒</span>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Contraseña"
+          #passwordInput="ngModel"
+          required>
+      </div>
+      <small *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched || formSubmitted)" class="field-error">
+        La contraseña es obligatoria.
+      </small>
+
+      <button type="submit" class="btn-primary">Iniciar Sesión</button>
+    </form>
+
+    <div class="auth-footer">
+      <div class="register-prompt">
+        <p class="prompt-title">¿No tienes una cuenta? <a routerLink="/register" class="link-green">Regístrate</a></p>
+      </div>
+    </div>
+  </div>
+
+</div>

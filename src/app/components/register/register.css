@@ -1,0 +1,184 @@
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 0;
+  box-sizing: border-box;
+  background-color: #f2f8f5;
+  background-image: radial-gradient(#d1e7dd 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-card {
+  background: #ffffff;
+  width: 90%;
+  max-width: 440px;
+  border-radius: 20px;
+  padding: 35px 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+/* Marca */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.brand-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #2d5a42;
+}
+
+/* Selector de Rol */
+.role-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.role-card {
+  border: 1px solid #cce3d7;
+  background-color: #f8faf9;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.role-card:hover {
+  border-color: #3b7a57;
+  background-color: #eaf4ee;
+}
+
+.role-card.active {
+  border: 2px solid #3b7a57;
+  background-color: #eaf4ee;
+}
+
+.role-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 4px;
+}
+
+.role-desc {
+  font-size: 11px;
+  color: #718096;
+  line-height: 1.2;
+}
+
+/* Alerta de Error General */
+.error-alert {
+  background-color: #fde8e8;
+  color: #9b1c1c;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 18px;
+  border: 1px solid #f8b4b4;
+  text-align: center;
+}
+
+/* Alerta por Campo */
+.field-error {
+  color: #e53e3e;
+  font-size: 11px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  display: block;
+  padding-left: 4px;
+}
+
+/* Formulario */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-group {
+  width: 100%;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #cce3d7;
+  background-color: #eaf4ee;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  border-color: #3b7a57;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 122, 87, 0.15);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background-color: #3b7a57;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2d5a42;
+}
+
+/* Pie de tarjeta */
+.auth-footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.prompt-title {
+  margin: 0;
+  font-size: 13px;
+  color: #4a5568;
+}
+
+.link-green {
+  color: #3b7a57;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link-green:hover {
+  text-decoration: underline;
+}

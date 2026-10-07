@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+/* Normalización y reseteo */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f4fbf7; /* El verde muy suave del fondo V3 */
+  background-image: radial-gradient(#d8f3dc 1.5px, transparent 1.5px);
+  background-size: 24px 24px; /* Patrón de puntos idéntico a V3 */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Contenedor principal de vistas */
+main, app-prenda-list {
+  display: block;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+}

@@ -1,59 +1,21 @@
-# Frontend
+# ClothLink
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.1.
+ClothLink es una plataforma web orientada al impacto social que facilita el proceso de donación e intercambio de prendas de vestir de forma transparente, rápida e intuitiva. La aplicación permite a los donantes publicar prendas en buen estado y a los usuarios u organizaciones explorar, filtrar y solicitar prendas disponibles a través de un catálogo interactivo.
 
-## Development server
+---
 
-To start a local development server, run:
+## Funcionalidades Principales
 
-```bash
-ng serve
-```
+* **Autenticación y Gestión de Usuarios:** Registro e inicio de sesión con persistencia de sesión mediante tokens JWT. Identificación dinámica del usuario activo y gestión de cierre de sesión.
+* **Catálogo Interactivo:** Carga automática de prendas disponibles con opciones de búsqueda por texto o ID, y filtros por categoría (*Pantalones, Camisas, Suéteres, Calzado*), talla y estado (*Nuevo, Buen Estado, Usado*).
+* **Publicación de Prendas (Donar):** Formulario intuitivo para el registro de nuevas prendas con carga de imágenes y descripción detallada.
+* **Actualización en Tiempo Real:** Interfaz reactiva que refleja la eliminación de prendas y los cambios de disponibilidad inmediatamente sin necesidad de recargar la página.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Tecnologías Utilizadas
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+* **Frontend:** Angular, TypeScript, HTML5, CSS3 / SCSS, RxJS.
+* **Backend:** Node.js, Express.js, Prisma ORM, Multer.
+* **Base de Datos:** MySQL.
+* **Autenticación:** JSON Web Tokens (JWT), bcrypt.

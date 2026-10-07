@@ -1,0 +1,122 @@
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <div class="brand-logo">
+      <span class="brand-name">ClothLink</span>
+    </div>
+
+    <!-- Selección de Rol -->
+    <div class="role-selector">
+      <div
+        class="role-card"
+        [class.active]="tipoUsuario === 'DONANTE'"
+        (click)="seleccionarTipo('DONANTE')">
+        <span class="role-title">Donante</span>
+        <span class="role-desc">Para personas o empresas que quieran donar ropa</span>
+      </div>
+
+      <div
+        class="role-card"
+        [class.active]="tipoUsuario === 'ORGANIZACION'"
+        (click)="seleccionarTipo('ORGANIZACION')">
+        <span class="role-title">Organización</span>
+        <span class="role-desc">Para organizaciones benéficas o de ayuda</span>
+      </div>
+    </div>
+
+    <!-- Alerta de Error General -->
+    <div *ngIf="errorMessage" class="error-alert">
+      {{ errorMessage }}
+    </div>
+
+    <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)" class="auth-form" novalidate>
+      <!-- Nombre -->
+      <div>
+        <div class="input-group">
+          <input
+            type="text"
+            [(ngModel)]="nombre"
+            name="nombre"
+            [placeholder]="tipoUsuario === 'DONANTE' ? 'Nombre completo' : 'Nombre de la Organización'"
+            #nombreInput="ngModel"
+            required>
+        </div>
+        <small *ngIf="(nombreInput.invalid && (nombreInput.dirty || nombreInput.touched)) || (formSubmitted && !nombre)" class="field-error">
+          El nombre es obligatorio.
+        </small>
+      </div>
+
+      <!-- Correo Electrónico -->
+      <div>
+        <div class="input-group">
+          <input
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            placeholder="Correo electrónico"
+            #emailInput="ngModel"
+            required
+            email>
+        </div>
+        <small *ngIf="(emailInput.invalid && (emailInput.dirty || emailInput.touched)) || (formSubmitted && !email)" class="field-error">
+          Ingresa un correo electrónico válido.
+        </small>
+      </div>
+
+      <!-- Teléfono -->
+      <div>
+        <div class="input-group">
+          <input
+            type="tel"
+            [(ngModel)]="telefono"
+            name="telefono"
+            placeholder="Teléfono"
+            #telefonoInput="ngModel"
+            required>
+        </div>
+        <small *ngIf="(telefonoInput.invalid && (telefonoInput.dirty || telefonoInput.touched)) || (formSubmitted && !telefono)" class="field-error">
+          El teléfono es obligatorio.
+        </small>
+      </div>
+
+      <!-- Dirección -->
+      <div>
+        <div class="input-group">
+          <input
+            type="text"
+            [(ngModel)]="direccion"
+            name="direccion"
+            placeholder="Dirección"
+            #direccionInput="ngModel"
+            required>
+        </div>
+        <small *ngIf="(direccionInput.invalid && (direccionInput.dirty || direccionInput.touched)) || (formSubmitted && !direccion)" class="field-error">
+          La dirección es obligatoria.
+        </small>
+      </div>
+
+      <!-- Contraseña -->
+      <div>
+        <div class="input-group">
+          <input
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            placeholder="Contraseña"
+            #passwordInput="ngModel"
+            required
+            minlength="6">
+        </div>
+        <small *ngIf="(passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)) || (formSubmitted && !password)" class="field-error">
+          La contraseña es obligatoria (mínimo 6 caracteres).
+        </small>
+      </div>
+
+      <button type="submit" class="btn-primary">Crear Cuenta</button>
+    </form>
+
+    <div class="auth-footer">
+      <p class="prompt-title">¿Ya tienes una cuenta? <a routerLink="/login" class="link-green">Inicia sesión</a></p>
+    </div>
+  </div>
+
+</div>

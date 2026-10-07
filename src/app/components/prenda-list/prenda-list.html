@@ -1,0 +1,63 @@
+<!-- Barra de Búsqueda y Filtros -->
+<div class="filter-bar">
+  <div class="search-input">
+    <span class="search-icon">🔍</span>
+    <input type="text" placeholder="Buscar por Categoría" [(ngModel)]="filtroTexto" (input)="aplicarFiltros()">
+  </div>
+
+  <select [(ngModel)]="filtroCategoria" (change)="aplicarFiltros()">
+    <option value="">Categoría</option>
+    <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nombre }}</option>
+  </select>
+
+  <select [(ngModel)]="filtroTalla" (change)="aplicarFiltros()">
+    <option value="">Talla</option>
+    <option *ngFor="let talla of tallas" [value]="talla">{{ talla }}</option>
+  </select>
+
+  <select [(ngModel)]="filtroEstado" (change)="aplicarFiltros()">
+    <option value="">Estado</option>
+    <option *ngFor="let estado of estados" [value]="estado.value">{{ estado.label }}</option>
+  </select>
+
+  <button class="btn-filtrar" (click)="aplicarFiltros()">Filtrar</button>
+</div>
+
+<!-- Grid de Prendas (4 Columnas) -->
+<div class="prendas-grid">
+  <div class="prenda-card" *ngFor="let prenda of prendasFiltradas">
+    <div class="card-image">
+      <img [src]="obtenerImagenUrl(prenda.imagen_url)" (error)="onImagenError($event)" [alt]="prenda.titulo || prenda.nombre || 'Imagen de prenda'">
+    </div>
+
+    <div class="card-content">
+      <h3 class="card-title">{{ prenda.titulo || prenda.nombre }}</h3>
+
+      <div class="card-badges">
+        <span class="badge badge-talla">Talla: {{ prenda.talla }}</span>
+        <span class="badge badge-estado">Estado: {{ obtenerEstadoLabel(prenda.estado_prenda || prenda.estado) }}</span>
+      </div>
+
+      <button
+        *ngIf="estaDisponible(prenda); else unavailable"
+        class="btn-solicitar"
+        (click)="solicitarDonacion(prenda.id_prenda ?? prenda.id ?? 0)"
+      >
+        Solicitar Donación
+      </button>
+      <ng-template #unavailable>
+        <button class="btn-no-disponible" type="button" disabled>
+          {{ prenda.estado_solicitud === 'SOLICITADA' || prenda.estado_donacion === 'SOLICITADA' ? 'Ya solicitada' : 'No disponible' }}
+        </button>
+      </ng-template>
+      <button
+        class="btn-eliminar"
+        type="button"
+        (click)="eliminarPrenda(prenda)"
+        [disabled]="eliminandoIds.has(prenda.id_prenda ?? prenda.id ?? 0)"
+      >
+        {{ eliminandoIds.has(prenda.id_prenda ?? prenda.id ?? 0) ? 'Eliminando...' : 'Eliminar' }}
+      </button>
+    </div>
+  </div>
+</div>
