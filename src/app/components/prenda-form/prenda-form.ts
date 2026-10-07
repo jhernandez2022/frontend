@@ -98,7 +98,7 @@ export class PrendaForm implements OnInit, OnDestroy {
     this.publicando = true;
     this.prendaService.crearPrenda(payload).subscribe({
       next: () => {
-        alert(`¡Gracias ${this.usuarioNombre}! La prenda "${this.nuevaPrenda.titulo}" se ha publicado con éxito.`);
+        alert(`Muchas gracias ${this.usuarioNombre}, la prenda "${this.nuevaPrenda.titulo}" se ha publicado con éxito.`);
         this.router.navigate(['/prendas']);
       },
       error: (err) => {

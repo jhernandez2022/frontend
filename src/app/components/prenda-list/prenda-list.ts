@@ -218,7 +218,7 @@ export class PrendaListComponent implements OnInit {
           this.aplicarFiltros();
           this.changeDetectorRef.markForCheck();
         }
-        alert('¡Solicitud de donación enviada con éxito!');
+        alert('Solicitud de donación enviada con éxito');
       },
       error: (err) => {
         console.error('Error al enviar la solicitud:', err);
